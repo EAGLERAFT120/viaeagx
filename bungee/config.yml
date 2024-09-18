@@ -1,0 +1,50 @@
+listeners:
+- query_port: 25577
+  motd: viaeagx
+  tab_list: GLOBAL_PING
+  query_enabled: false
+  proxy_protocol: false
+  forced_hosts: {}
+  ping_passthrough: false
+  priorities:
+  - lobby
+  bind_local_address: false
+  host: 127.0.0.1:25577
+  max_players: 1
+  tab_size: 60
+  force_default_server: true
+groups:
+  md_5: []
+connection_throttle_limit: 3
+permissions:
+  default: []
+  admin:
+  - bungeecord.command.server
+  - bungeecord.command.list
+  - bungeecord.command.alert
+  - bungeecord.command.end
+  - bungeecord.command.ip
+  - bungeecord.command.reload
+  - bungeecord.command.kick
+log_commands: false
+network_compression_threshold: 256
+timeout: 30000
+log_pings: true
+prevent_proxy_connections: false
+connection_throttle: 4000
+enforce_secure_profile: false
+online_mode: false
+stats: 00000000-0000-0000-0000-000000000000
+ip_forward: false
+servers:
+  lobby:
+    motd: '&1Just another Waterfall - Forced Host'
+    address: localhost:25569
+    restricted: false
+reject_transfers: false
+server_connect_timeout: 5000
+forge_support: true
+disabled_commands: []
+remote_ping_cache: -1
+remote_ping_timeout: 5000
+player_limit: -1
