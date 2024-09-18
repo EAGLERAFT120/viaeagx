@@ -1,0 +1,599 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x00007fca050a946e, pid=75, tid=102
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.4.1+1 (17.0.4.1+1) (build 17.0.4.1+1)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.4.1+1 (17.0.4.1+1, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, serial gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0xc5446e]  PerfLongVariant::sample()+0x1e
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E" (or dumping to /home/runner/viaeagx/viaaas/core.75)
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xmx512M viaaas.jar -host=127.0.0.1 -port=8082
+
+Host: AMD EPYC 7B12, 4 cores, 1G, Ubuntu 20.04.2 LTS
+Time: Tue Jul 25 14:29:27 2023 UTC elapsed time: 400.728072 seconds (0d 0h 6m 40s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fca000b0b00):  WatcherThread [stack: 0x00007fc9ea618000,0x00007fc9ea718000] [id=102]
+
+Stack: [0x00007fc9ea618000,0x00007fc9ea718000],  sp=0x00007fc9ea716cc0,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xc5446e]  PerfLongVariant::sample()+0x1e
+V  [libjvm.so+0xd9b052]  StatSamplerTask::task()+0x32
+V  [libjvm.so+0xe1df2c]  PeriodicTask::real_time_tick(int)+0x5c
+V  [libjvm.so+0xbe4cd7]  WatcherThread::run()+0x47
+V  [libjvm.so+0xe5c99e]  Thread::call_run()+0xde
+V  [libjvm.so+0xc16351]  thread_native_entry(Thread*)+0xe1
+
+
+siginfo: si_signo: 7 (SIGBUS), si_code: 2 (BUS_ADRERR), si_addr: 0x00007fca04245650
+
+Register to memory mapping:
+
+RAX=0x0000000000b69f78 is an unknown value
+RBX=0x00007fca04245650 is an unknown value
+RCX=0x00007fca0599e080 points into unknown readable memory: 0x0000000000000040 | 40 00 00 00 00 00 00 00
+RDX=0x0000000000000001 is an unknown value
+RSP=0x00007fc9ea716cc0 points into unknown readable memory: 0x00007fca00022190 | 90 21 02 00 ca 7f 00 00
+RBP=0x00007fc9ea716cd0 points into unknown readable memory: 0x00007fc9ea716cf0 | f0 6c 71 ea c9 7f 00 00
+RSI=0x0 is NULL
+RDI=0x00007fca00021528 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+R8 =0x00007fca000b1380 points into unknown readable memory: 0x0000000000000003 | 03 00 00 00 00 00 00 00
+R9 =0x0 is NULL
+R10=0x0 is NULL
+R11=0x0000000000000246 is an unknown value
+R12=0x00007fca000b0a20 points into unknown readable memory: 0x00007fca000b0a40 | 40 0a 0b 00 ca 7f 00 00
+R13=0x0000000000000001 is an unknown value
+R14=0x0000000000000002 is an unknown value
+R15=0x00007fca05773580: <offset 0x000000000131e580> in /nix/store/3kwffh5z52ali43lprv3p5id9yz78xmd-temurin-jre-bin-17.0.4/lib/server/libjvm.so at 0x00007fca04455000
+
+
+Registers:
+RAX=0x0000000000b69f78, RBX=0x00007fca04245650, RCX=0x00007fca0599e080, RDX=0x0000000000000001
+RSP=0x00007fc9ea716cc0, RBP=0x00007fc9ea716cd0, RSI=0x0000000000000000, RDI=0x00007fca00021528
+R8 =0x00007fca000b1380, R9 =0x0000000000000000, R10=0x0000000000000000, R11=0x0000000000000246
+R12=0x00007fca000b0a20, R13=0x0000000000000001, R14=0x0000000000000002, R15=0x00007fca05773580
+RIP=0x00007fca050a946e, EFLAGS=0x0000000000010202, CSGSFS=0x002b000000000033, ERR=0x0000000000000007
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fc9ea716cc0)
+0x00007fc9ea716cc0:   00007fca00022190 0000000000000001
+0x00007fc9ea716cd0:   00007fc9ea716cf0 00007fca051f0052
+0x00007fc9ea716ce0:   0000000000000032 0000000000000032
+0x00007fc9ea716cf0:   00007fc9ea716d40 00007fca05272f2c 
+
+Instructions: (pc=0x00007fca050a946e)
+0x00007fca050a936e:   00 48 83 c4 08 5b 41 5c 41 5d 41 5e 41 5f 5d c3
+0x00007fca050a937e:   66 90 31 f6 4c 89 e7 e8 56 96 20 00 e9 7f ff ff
+0x00007fca050a938e:   ff 90 31 f6 4c 89 e7 e8 46 96 20 00 e9 12 ff ff
+0x00007fca050a939e:   ff 90 31 f6 4c 89 e7 e8 36 96 20 00 e9 96 fe ff
+0x00007fca050a93ae:   ff 90 be 01 00 00 00 4c 89 e7 e8 f3 00 07 00 e9
+0x00007fca050a93be:   63 fe ff ff 66 0f 1f 44 00 00 be 01 00 00 00 4c
+0x00007fca050a93ce:   89 e7 e8 db 00 07 00 e9 1c ff ff ff 66 0f 1f 44
+0x00007fca050a93de:   00 00 48 8d 05 61 df 65 00 48 8d 0d 36 f7 39 00
+0x00007fca050a93ee:   48 8d 15 45 f7 39 00 be 44 01 00 00 48 8d 3d 27
+0x00007fca050a93fe:   f6 39 00 48 8b 00 c6 00 58 31 c0 e8 92 f0 9a ff
+0x00007fca050a940e:   e8 9d c6 fb ff e9 bd fe ff ff 0f 1f 84 00 00 00
+0x00007fca050a941e:   00 00 be 01 00 00 00 4c 89 e7 e8 83 00 07 00 e9
+0x00007fca050a942e:   53 fe ff ff 66 0f 1f 44 00 00 4c 89 e7 45 31 e4
+0x00007fca050a943e:   e8 fd 3d 20 00 e9 bc fd ff ff 0f 1f 84 00 00 00
+0x00007fca050a944e:   00 00 4c 8b 47 38 4d 85 c0 74 27 55 48 89 e5 53
+0x00007fca050a945e:   48 83 ec 08 49 8b 00 48 8b 5f 28 4c 89 c7 ff 10
+0x00007fca050a946e:   48 89 03 48 8b 5d f8 c9 c3 66 0f 1f 84 00 00 00
+0x00007fca050a947e:   00 00 c3 90 66 66 2e 0f 1f 84 00 00 00 00 00 0f
+0x00007fca050a948e:   1f 00 49 89 f8 48 89 f7 48 63 f2 49 8b 40 28 48
+0x00007fca050a949e:   8d 15 bd f1 3a 00 48 8b 08 31 c0 e9 82 cb 5f ff
+0x00007fca050a94ae:   66 90 49 89 f8 31 c0 48 89 f7 48 63 f2 49 8b 48
+0x00007fca050a94be:   28 48 8d 15 d8 eb 35 00 e9 65 cb 5f ff 90 0f 1f
+0x00007fca050a94ce:   40 00 55 48 8d 05 58 4a 65 00 66 41 0f 6e c0 66
+0x00007fca050a94de:   0f 6e c9 66 0f 62 c1 48 89 e5 41 57 49 89 d7 41
+0x00007fca050a94ee:   56 41 55 4c 63 ee 41 54 53 48 89 fb 48 83 ec 18
+0x00007fca050a94fe:   48 89 07 48 8d 05 f8 27 67 00 48 c7 47 08 00 00
+0x00007fca050a950e:   00 00 4e 8b 34 e8 c6 47 18 00 48 c7 47 28 00 00
+0x00007fca050a951e:   00 00 66 0f d6 47 10 48 89 d7 e8 f3 ce 5f ff 4c
+0x00007fca050a952e:   89 f7 48 89 45 c8 e8 e7 ce 5f ff 48 8b 55 c8 be
+0x00007fca050a953e:   08 00 00 00 48 8d 7c 02 02 31 d2 e8 82 ef 76 ff
+0x00007fca050a954e:   48 89 43 08 48 89 c7 41 83 fd 18 74 55 4c 89 f2
+0x00007fca050a955e:   4c 89 f9 48 8d 35 40 9c 38 00 31 c0 e8 31 d8 5f 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x00007fca00022190 points into unknown readable memory: 0x00007fca000b0b00 | 00 0b 0b 00 ca 7f 00 00
+stack at sp + 1 slots: 0x0000000000000001 is an unknown value
+stack at sp + 2 slots: 0x00007fc9ea716cf0 points into unknown readable memory: 0x00007fc9ea716d40 | 40 6d 71 ea c9 7f 00 00
+stack at sp + 3 slots: 0x00007fca051f0052: <offset 0x0000000000d9b052> in /nix/store/3kwffh5z52ali43lprv3p5id9yz78xmd-temurin-jre-bin-17.0.4/lib/server/libjvm.so at 0x00007fca04455000
+stack at sp + 4 slots: 0x0000000000000032 is an unknown value
+stack at sp + 5 slots: 0x0000000000000032 is an unknown value
+stack at sp + 6 slots: 0x00007fc9ea716d40 points into unknown readable memory: 0x00007fc9ea716dc0 | c0 6d 71 ea c9 7f 00 00
+stack at sp + 7 slots: 0x00007fca05272f2c: <offset 0x0000000000e1df2c> in /nix/store/3kwffh5z52ali43lprv3p5id9yz78xmd-temurin-jre-bin-17.0.4/lib/server/libjvm.so at 0x00007fca04455000
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fc9d8001140, length=26, elements={
+0x00007fca00023b30, 0x00007fca0005df70, 0x00007fca0005f380, 0x00007fca00065980,
+0x00007fca00066d00, 0x00007fca000680e0, 0x00007fca00069a60, 0x00007fca0006af60,
+0x00007fca0006c3a0, 0x00007fca000af1e0, 0x00007fca000b2360, 0x00007fca0026bc90,
+0x00007fca00642290, 0x00007fca0071d190, 0x00007fca0081ac60, 0x00007fca00554480,
+0x00007fc9b0090360, 0x00007fc99401c220, 0x00007fc99403f000, 0x00007fc998005cc0,
+0x00007fc99801b700, 0x00007fca008958a0, 0x00007fc99c003740, 0x00007fca0103aa00,
+0x00007fca00c0de80, 0x00007fca0114b8a0
+}
+
+Java Threads: ( => current thread )
+  0x00007fca00023b30 JavaThread "main" [_thread_blocked, id=87, stack(0x00007fca04270000,0x00007fca04370000)]
+  0x00007fca0005df70 JavaThread "Reference Handler" daemon [_thread_blocked, id=91, stack(0x00007fc9eb1fe000,0x00007fc9eb2fe000)]
+  0x00007fca0005f380 JavaThread "Finalizer" daemon [_thread_blocked, id=92, stack(0x00007fc9eb0fe000,0x00007fc9eb1fe000)]
+  0x00007fca00065980 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=94, stack(0x00007fc9ead18000,0x00007fc9eae18000)]
+  0x00007fca00066d00 JavaThread "Service Thread" daemon [_thread_blocked, id=95, stack(0x00007fc9eac18000,0x00007fc9ead18000)]
+  0x00007fca000680e0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=96, stack(0x00007fc9eab18000,0x00007fc9eac18000)]
+  0x00007fca00069a60 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=97, stack(0x00007fc9eaa18000,0x00007fc9eab18000)]
+  0x00007fca0006af60 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=98, stack(0x00007fc9ea918000,0x00007fc9eaa18000)]
+  0x00007fca0006c3a0 JavaThread "Sweeper thread" daemon [_thread_blocked, id=100, stack(0x00007fc9ea818000,0x00007fc9ea918000)]
+  0x00007fca000af1e0 JavaThread "Notification Thread" daemon [_thread_blocked, id=101, stack(0x00007fc9ea718000,0x00007fc9ea818000)]
+  0x00007fca000b2360 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=103, stack(0x00007fc9ea516000,0x00007fc9ea616000)]
+  0x00007fca0026bc90 JavaThread "Log4j2-TF-1-AsyncLogger[AsyncContext@b4c966a]-1" daemon [_thread_blocked, id=110, stack(0x00007fc9ea416000,0x00007fc9ea516000)]
+  0x00007fca00642290 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=118, stack(0x00007fc9ea00a000,0x00007fc9ea10a000)]
+  0x00007fca0071d190 JavaThread "Via-0" daemon [_thread_blocked, id=120, stack(0x00007fc9e8e00000,0x00007fc9e8f00000)]
+  0x00007fca0081ac60 JavaThread "epollEventLoopGroup-3-1" [_thread_in_native, id=121, stack(0x00007fc9e8d00000,0x00007fc9e8e00000)]
+  0x00007fca00554480 JavaThread "DefaultDispatcher-worker-1" daemon [_thread_blocked, id=122, stack(0x00007fc9e8f00000,0x00007fc9e9000000)]
+  0x00007fc9b0090360 JavaThread "ktor-client-java-0" daemon [_thread_blocked, id=124, stack(0x00007fc9e8800000,0x00007fc9e8900000)]
+  0x00007fc99401c220 JavaThread "HttpClient-1-SelectorManager" daemon [_thread_in_native, id=125, stack(0x00007fc9e8700000,0x00007fc9e8800000)]
+  0x00007fc99403f000 JavaThread "ktor-client-java-1" daemon [_thread_blocked, id=126, stack(0x00007fc9e8600000,0x00007fc9e8700000)]
+  0x00007fc998005cc0 JavaThread "ktor-client-java-2" daemon [_thread_blocked, id=127, stack(0x00007fc9e8500000,0x00007fc9e8600000)]
+  0x00007fc99801b700 JavaThread "ktor-client-java-3" daemon [_thread_blocked, id=128, stack(0x00007fc9e8400000,0x00007fc9e8500000)]
+  0x00007fca008958a0 JavaThread "ViaRewind-1_8TO1_9" daemon [_thread_blocked, id=142, stack(0x00007fc9a2700000,0x00007fc9a2800000)]
+  0x00007fc99c003740 JavaThread "DefaultDispatcher-worker-2" daemon [_thread_blocked, id=143, stack(0x00007fc9a2600000,0x00007fc9a2700000)]
+  0x00007fca0103aa00 JavaThread "epollEventLoopGroup-2-1" [_thread_in_native, id=145, stack(0x00007fc9a2400000,0x00007fc9a2500000)]
+  0x00007fca00c0de80 JavaThread "eventLoopGroupProxy-4-1" daemon [_thread_in_native, id=149, stack(0x00007fc9a1b00000,0x00007fc9a1c00000)]
+  0x00007fca0114b8a0 JavaThread "Thread-10" [_thread_in_native, id=151, stack(0x00007fc9a06ff000,0x00007fc9a07ff000)]
+
+Other Threads:
+  0x00007fca00059780 VMThread "VM Thread" [stack: 0x00007fc9eb300000,0x00007fc9eb400000] [id=90]
+=>0x00007fca000b0b00 WatcherThread [stack: 0x00007fc9ea618000,0x00007fc9ea718000] [id=102]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fca00022190] PeriodicTask_lock - owner thread: 0x00007fca000b0b00
+
+Heap address: 0x00000000e0000000, size: 512 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000800000000-0x0000000800a79000-0x0000000800a79000), size 10981376, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Compressed class space mapped at: 0x0000000800c00000-0x0000000840c00000, reserved size: 1073741824
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 4 total, 1 available
+ Memory: 1024M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 16M
+ Heap Max Capacity: 512M
+ Pre-touch: Disabled
+
+Heap:
+ def new generation   total 16896K, used 13029K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,  84% used [0x00000000e0000000, 0x00000000e0c6c320, 0x00000000e0eb0000)
+  from space 1856K,  16% used [0x00000000e0eb0000, 0x00000000e0efd428, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 29112K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  78% used [0x00000000eaaa0000, 0x00000000ec70e000, 0x00000000ec70e000, 0x00000000ecf08000)
+ Metaspace       used 59447K, committed 59968K, reserved 1105920K
+  class space    used 8848K, committed 9088K, reserved 1048576K
+
+Card table byte_map: [0x00007fc9ebed3000,0x00007fc9ebfd4000] _byte_map_base: 0x00007fc9eb7d3000
+
+Polling page: 0x00007fca0424c000
+
+Metaspace:
+
+Usage:
+  Non-class:     49.41 MB used.
+      Class:      8.64 MB used.
+       Both:     58.05 MB used.
+
+Virtual space:
+  Non-class space:       56.00 MB reserved,      49.69 MB ( 89%) committed,  7 nodes.
+      Class space:        1.00 GB reserved,       8.88 MB ( <1%) committed,  1 nodes.
+             Both:        1.05 GB reserved,      58.56 MB (  5%) committed. 
+
+Chunk freelists:
+   Non-Class:  1.59 MB
+       Class:  2.95 MB
+        Both:  4.54 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 73.06 MB
+CDS: on
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 1048576.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 3.
+num_arena_births: 672.
+num_arena_deaths: 0.
+num_vsnodes_births: 8.
+num_vsnodes_deaths: 0.
+num_space_committed: 937.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 3.
+num_chunks_taken_from_freelist: 2572.
+num_chunk_merges: 3.
+num_chunk_splits: 1858.
+num_chunks_enlarged: 1426.
+num_purges: 0.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120036Kb used=1961Kb max_used=1961Kb free=118074Kb
+ bounds [0x00007fc9f3a9b000, 0x00007fc9f3d0b000, 0x00007fc9fafd4000]
+CodeHeap 'profiled nmethods': size=120032Kb used=8353Kb max_used=8353Kb free=111678Kb
+ bounds [0x00007fc9ec563000, 0x00007fc9ecd93000, 0x00007fc9f3a9b000]
+CodeHeap 'non-nmethods': size=5692Kb used=1474Kb max_used=1507Kb free=4217Kb
+ bounds [0x00007fc9ebfd4000, 0x00007fc9ec244000, 0x00007fc9ec563000]
+ total_blobs=5514 nmethods=4665 adapters=764
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 306.629 Thread 0x00007fca00069a60 4945       4       net.raphimc.vialegacy.protocols.release.protocol1_3_1_2to1_2_4_5.task.EntityTrackerTickTask::run (86 bytes)
+Event: 306.631 Thread 0x00007fca00069a60 nmethod 4945 0x00007fc9f3c82c10 code [0x00007fc9f3c82dc0, 0x00007fc9f3c82f38]
+Event: 306.861 Thread 0x00007fca00069a60 4946       4       net.raphimc.vialegacy.protocols.release.protocol1_2_1_3to1_1.tasks.BlockReceiveInvalidatorTask::run (86 bytes)
+Event: 306.863 Thread 0x00007fca00069a60 nmethod 4946 0x00007fc9f3c83210 code [0x00007fc9f3c833c0, 0x00007fc9f3c83538]
+Event: 307.048 Thread 0x00007fca00069a60 4947       4       net.raphimc.vialegacy.protocols.beta.protocol1_0_0_1tob1_8_0_1.task.PlayerAirTimeUpdateTask::run (106 bytes)
+Event: 307.050 Thread 0x00007fca00069a60 nmethod 4947 0x00007fc9f3c83810 code [0x00007fc9f3c839c0, 0x00007fc9f3c83b58]
+Event: 307.261 Thread 0x00007fca00069a60 4948       4       net.raphimc.vialegacy.protocols.beta.protocolb1_6_0_6tob1_5_0_2.task.TimeTrackTask::run (68 bytes)
+Event: 307.263 Thread 0x00007fca00069a60 nmethod 4948 0x00007fc9f3c83e10 code [0x00007fc9f3c83fc0, 0x00007fc9f3c84138]
+Event: 307.438 Thread 0x00007fca00069a60 4949       4       net.raphimc.vialegacy.protocols.beta.protocolb1_3_0_1tob1_2_0_2.task.BlockDigTickTask::run (86 bytes)
+Event: 307.440 Thread 0x00007fca00069a60 nmethod 4949 0x00007fc9f3c84410 code [0x00007fc9f3c845c0, 0x00007fc9f3c84738]
+Event: 308.256 Thread 0x00007fca00069a60 4950       4       com.viaversion.viaversion.protocols.protocol1_9to1_8.ViaIdleThread::run (143 bytes)
+Event: 308.258 Thread 0x00007fca00069a60 nmethod 4950 0x00007fc9f3c84a10 code [0x00007fc9f3c84bc0, 0x00007fc9f3c84d38]
+Event: 327.009 Thread 0x00007fca00069a60 4951       4       org.jline.utils.Timeout::elapsed (60 bytes)
+Event: 327.009 Thread 0x00007fca00069a60 nmethod 4951 0x00007fc9f3c85010 code [0x00007fc9f3c851a0, 0x00007fc9f3c85298]
+Event: 332.581 Thread 0x00007fca0006af60 4952       3       java.nio.channels.spi.AbstractSelector::isOpen (13 bytes)
+Event: 332.581 Thread 0x00007fca0006af60 nmethod 4952 0x00007fc9ecd88b90 code [0x00007fc9ecd88d20, 0x00007fc9ecd88e90]
+Event: 341.588 Thread 0x00007fca0006af60 4953       3       sun.nio.ch.SelectorImpl::ensureOpen (16 bytes)
+Event: 341.589 Thread 0x00007fca0006af60 nmethod 4953 0x00007fc9ecd88f10 code [0x00007fc9ecd890c0, 0x00007fc9ecd89340]
+Event: 392.633 Thread 0x00007fca00069a60 4956       4       java.util.EnumMap::isValidKey (36 bytes)
+Event: 392.633 Thread 0x00007fca00069a60 nmethod 4956 0x00007fc9f3c85310 code [0x00007fc9f3c854a0, 0x00007fc9f3c85578]
+
+GC Heap History (20 events):
+Event: 32.686 GC heap before
+{Heap before GC invocations=27 (full 2):
+ def new generation   total 9920K, used 9114K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K, 100% used [0x00000000e0000000, 0x00000000e08a0000, 0x00000000e08a0000)
+  from space 1088K,  25% used [0x00000000e08a0000, 0x00000000e08e6a28, 0x00000000e09b0000)
+  to   space 1088K,   0% used [0x00000000e09b0000, 0x00000000e09b0000, 0x00000000e0ac0000)
+ tenured generation   total 21984K, used 19789K [0x00000000eaaa0000, 0x00000000ec018000, 0x0000000100000000)
+   the space 21984K,  90% used [0x00000000eaaa0000, 0x00000000ebdf3780, 0x00000000ebdf3800, 0x00000000ec018000)
+ Metaspace       used 41221K, committed 41728K, reserved 1089536K
+  class space    used 5449K, committed 5696K, reserved 1048576K
+}
+Event: 32.689 GC heap after
+{Heap after GC invocations=28 (full 2):
+ def new generation   total 9920K, used 475K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e08a0000)
+  from space 1088K,  43% used [0x00000000e09b0000, 0x00000000e0a26f00, 0x00000000e0ac0000)
+  to   space 1088K,   0% used [0x00000000e08a0000, 0x00000000e08a0000, 0x00000000e09b0000)
+ tenured generation   total 21984K, used 19789K [0x00000000eaaa0000, 0x00000000ec018000, 0x0000000100000000)
+   the space 21984K,  90% used [0x00000000eaaa0000, 0x00000000ebdf3780, 0x00000000ebdf3800, 0x00000000ec018000)
+ Metaspace       used 41221K, committed 41728K, reserved 1089536K
+  class space    used 5449K, committed 5696K, reserved 1048576K
+}
+Event: 33.683 GC heap before
+{Heap before GC invocations=28 (full 2):
+ def new generation   total 9920K, used 9307K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K, 100% used [0x00000000e0000000, 0x00000000e08a0000, 0x00000000e08a0000)
+  from space 1088K,  43% used [0x00000000e09b0000, 0x00000000e0a26f00, 0x00000000e0ac0000)
+  to   space 1088K,   0% used [0x00000000e08a0000, 0x00000000e08a0000, 0x00000000e09b0000)
+ tenured generation   total 21984K, used 19789K [0x00000000eaaa0000, 0x00000000ec018000, 0x0000000100000000)
+   the space 21984K,  90% used [0x00000000eaaa0000, 0x00000000ebdf3780, 0x00000000ebdf3800, 0x00000000ec018000)
+ Metaspace       used 42486K, committed 43008K, reserved 1089536K
+  class space    used 5627K, committed 5888K, reserved 1048576K
+}
+Event: 33.702 GC heap after
+{Heap after GC invocations=29 (full 2):
+ def new generation   total 9920K, used 1087K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e08a0000)
+  from space 1088K,  99% used [0x00000000e08a0000, 0x00000000e09afff8, 0x00000000e09b0000)
+  to   space 1088K,   0% used [0x00000000e09b0000, 0x00000000e09b0000, 0x00000000e0ac0000)
+ tenured generation   total 21984K, used 21164K [0x00000000eaaa0000, 0x00000000ec018000, 0x0000000100000000)
+   the space 21984K,  96% used [0x00000000eaaa0000, 0x00000000ebf4b2e8, 0x00000000ebf4b400, 0x00000000ec018000)
+ Metaspace       used 42486K, committed 43008K, reserved 1089536K
+  class space    used 5627K, committed 5888K, reserved 1048576K
+}
+Event: 34.487 GC heap before
+{Heap before GC invocations=29 (full 2):
+ def new generation   total 9920K, used 9919K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K, 100% used [0x00000000e0000000, 0x00000000e08a0000, 0x00000000e08a0000)
+  from space 1088K,  99% used [0x00000000e08a0000, 0x00000000e09afff8, 0x00000000e09b0000)
+  to   space 1088K,   0% used [0x00000000e09b0000, 0x00000000e09b0000, 0x00000000e0ac0000)
+ tenured generation   total 21984K, used 21164K [0x00000000eaaa0000, 0x00000000ec018000, 0x0000000100000000)
+   the space 21984K,  96% used [0x00000000eaaa0000, 0x00000000ebf4b2e8, 0x00000000ebf4b400, 0x00000000ec018000)
+ Metaspace       used 44401K, committed 44864K, reserved 1089536K
+  class space    used 5937K, committed 6144K, reserved 1048576K
+}
+Event: 34.492 GC heap after
+{Heap after GC invocations=30 (full 2):
+ def new generation   total 9920K, used 646K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e08a0000)
+  from space 1088K,  59% used [0x00000000e09b0000, 0x00000000e0a51950, 0x00000000e0ac0000)
+  to   space 1088K,   0% used [0x00000000e08a0000, 0x00000000e08a0000, 0x00000000e09b0000)
+ tenured generation   total 22368K, used 22245K [0x00000000eaaa0000, 0x00000000ec078000, 0x0000000100000000)
+   the space 22368K,  99% used [0x00000000eaaa0000, 0x00000000ec059518, 0x00000000ec059600, 0x00000000ec078000)
+ Metaspace       used 44401K, committed 44864K, reserved 1089536K
+  class space    used 5937K, committed 6144K, reserved 1048576K
+}
+Event: 34.492 GC heap before
+{Heap before GC invocations=30 (full 2):
+ def new generation   total 9920K, used 646K [0x00000000e0000000, 0x00000000e0ac0000, 0x00000000eaaa0000)
+  eden space 8832K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e08a0000)
+  from space 1088K,  59% used [0x00000000e09b0000, 0x00000000e0a51950, 0x00000000e0ac0000)
+  to   space 1088K,   0% used [0x00000000e08a0000, 0x00000000e08a0000, 0x00000000e09b0000)
+ tenured generation   total 22368K, used 22245K [0x00000000eaaa0000, 0x00000000ec078000, 0x0000000100000000)
+   the space 22368K,  99% used [0x00000000eaaa0000, 0x00000000ec059518, 0x00000000ec059600, 0x00000000ec078000)
+ Metaspace       used 44401K, committed 44864K, reserved 1089536K
+  class space    used 5937K, committed 6144K, reserved 1048576K
+}
+Event: 34.601 GC heap after
+{Heap after GC invocations=30 (full 3):
+ def new generation   total 16896K, used 248K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   1% used [0x00000000e0000000, 0x00000000e003e290, 0x00000000e0eb0000)
+  from space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 22367K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  59% used [0x00000000eaaa0000, 0x00000000ec077ff8, 0x00000000ec078000, 0x00000000ecf08000)
+ Metaspace       used 44401K, committed 44864K, reserved 1089536K
+  class space    used 5937K, committed 6144K, reserved 1048576K
+}
+Event: 36.207 GC heap before
+{Heap before GC invocations=30 (full 3):
+ def new generation   total 16896K, used 15040K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K, 100% used [0x00000000e0000000, 0x00000000e0eb0000, 0x00000000e0eb0000)
+  from space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 22367K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  59% used [0x00000000eaaa0000, 0x00000000ec077ff8, 0x00000000ec078000, 0x00000000ecf08000)
+ Metaspace       used 46866K, committed 47360K, reserved 1097728K
+  class space    used 6366K, committed 6592K, reserved 1048576K
+}
+Event: 36.288 GC heap after
+{Heap after GC invocations=31 (full 3):
+ def new generation   total 16896K, used 1856K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e0eb0000)
+  from space 1856K, 100% used [0x00000000e1080000, 0x00000000e1250000, 0x00000000e1250000)
+  to   space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+ tenured generation   total 37280K, used 22898K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  61% used [0x00000000eaaa0000, 0x00000000ec0fc988, 0x00000000ec0fca00, 0x00000000ecf08000)
+ Metaspace       used 46866K, committed 47360K, reserved 1097728K
+  class space    used 6366K, committed 6592K, reserved 1048576K
+}
+Event: 37.601 GC heap before
+{Heap before GC invocations=31 (full 3):
+ def new generation   total 16896K, used 16896K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K, 100% used [0x00000000e0000000, 0x00000000e0eb0000, 0x00000000e0eb0000)
+  from space 1856K, 100% used [0x00000000e1080000, 0x00000000e1250000, 0x00000000e1250000)
+  to   space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+ tenured generation   total 37280K, used 22898K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  61% used [0x00000000eaaa0000, 0x00000000ec0fc988, 0x00000000ec0fca00, 0x00000000ecf08000)
+ Metaspace       used 49436K, committed 49920K, reserved 1097728K
+  class space    used 6992K, committed 7232K, reserved 1048576K
+}
+Event: 37.613 GC heap after
+{Heap after GC invocations=32 (full 3):
+ def new generation   total 16896K, used 1322K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e0eb0000)
+  from space 1856K,  71% used [0x00000000e0eb0000, 0x00000000e0ffa940, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 24738K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  66% used [0x00000000eaaa0000, 0x00000000ec2c8878, 0x00000000ec2c8a00, 0x00000000ecf08000)
+ Metaspace       used 49436K, committed 49920K, reserved 1097728K
+  class space    used 6992K, committed 7232K, reserved 1048576K
+}
+Event: 38.802 GC heap before
+{Heap before GC invocations=32 (full 3):
+ def new generation   total 16896K, used 16362K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K, 100% used [0x00000000e0000000, 0x00000000e0eb0000, 0x00000000e0eb0000)
+  from space 1856K,  71% used [0x00000000e0eb0000, 0x00000000e0ffa940, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 24738K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  66% used [0x00000000eaaa0000, 0x00000000ec2c8878, 0x00000000ec2c8a00, 0x00000000ecf08000)
+ Metaspace       used 51792K, committed 52288K, reserved 1097728K
+  class space    used 7639K, committed 7872K, reserved 1048576K
+}
+Event: 38.809 GC heap after
+{Heap after GC invocations=33 (full 3):
+ def new generation   total 16896K, used 1162K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e0eb0000)
+  from space 1856K,  62% used [0x00000000e1080000, 0x00000000e11a2898, 0x00000000e1250000)
+  to   space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+ tenured generation   total 37280K, used 25991K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  69% used [0x00000000eaaa0000, 0x00000000ec401e08, 0x00000000ec402000, 0x00000000ecf08000)
+ Metaspace       used 51792K, committed 52288K, reserved 1097728K
+  class space    used 7639K, committed 7872K, reserved 1048576K
+}
+Event: 40.382 GC heap before
+{Heap before GC invocations=33 (full 3):
+ def new generation   total 16896K, used 16202K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K, 100% used [0x00000000e0000000, 0x00000000e0eb0000, 0x00000000e0eb0000)
+  from space 1856K,  62% used [0x00000000e1080000, 0x00000000e11a2898, 0x00000000e1250000)
+  to   space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+ tenured generation   total 37280K, used 25991K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  69% used [0x00000000eaaa0000, 0x00000000ec401e08, 0x00000000ec402000, 0x00000000ecf08000)
+ Metaspace       used 54611K, committed 55040K, reserved 1097728K
+  class space    used 8193K, committed 8384K, reserved 1048576K
+}
+Event: 40.387 GC heap after
+{Heap after GC invocations=34 (full 3):
+ def new generation   total 16896K, used 827K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e0eb0000)
+  from space 1856K,  44% used [0x00000000e0eb0000, 0x00000000e0f7ef08, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 27079K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  72% used [0x00000000eaaa0000, 0x00000000ec511e48, 0x00000000ec512000, 0x00000000ecf08000)
+ Metaspace       used 54611K, committed 55040K, reserved 1097728K
+  class space    used 8193K, committed 8384K, reserved 1048576K
+}
+Event: 42.885 GC heap before
+{Heap before GC invocations=34 (full 3):
+ def new generation   total 16896K, used 15867K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K, 100% used [0x00000000e0000000, 0x00000000e0eb0000, 0x00000000e0eb0000)
+  from space 1856K,  44% used [0x00000000e0eb0000, 0x00000000e0f7ef08, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 27079K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  72% used [0x00000000eaaa0000, 0x00000000ec511e48, 0x00000000ec512000, 0x00000000ecf08000)
+ Metaspace       used 58352K, committed 58880K, reserved 1105920K
+  class space    used 8698K, committed 8960K, reserved 1048576K
+}
+Event: 42.891 GC heap after
+{Heap after GC invocations=35 (full 3):
+ def new generation   total 16896K, used 1855K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e0eb0000)
+  from space 1856K,  99% used [0x00000000e1080000, 0x00000000e124fff8, 0x00000000e1250000)
+  to   space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+ tenured generation   total 37280K, used 27360K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  73% used [0x00000000eaaa0000, 0x00000000ec558300, 0x00000000ec558400, 0x00000000ecf08000)
+ Metaspace       used 58352K, committed 58880K, reserved 1105920K
+  class space    used 8698K, committed 8960K, reserved 1048576K
+}
+Event: 43.586 GC heap before
+{Heap before GC invocations=35 (full 3):
+ def new generation   total 16896K, used 16895K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K, 100% used [0x00000000e0000000, 0x00000000e0eb0000, 0x00000000e0eb0000)
+  from space 1856K,  99% used [0x00000000e1080000, 0x00000000e124fff8, 0x00000000e1250000)
+  to   space 1856K,   0% used [0x00000000e0eb0000, 0x00000000e0eb0000, 0x00000000e1080000)
+ tenured generation   total 37280K, used 27360K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  73% used [0x00000000eaaa0000, 0x00000000ec558300, 0x00000000ec558400, 0x00000000ecf08000)
+ Metaspace       used 59247K, committed 59712K, reserved 1105920K
+  class space    used 8840K, committed 9088K, reserved 1048576K
+}
+Event: 43.591 GC heap after
+{Heap after GC invocations=36 (full 3):
+ def new generation   total 16896K, used 309K [0x00000000e0000000, 0x00000000e1250000, 0x00000000eaaa0000)
+  eden space 15040K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e0eb0000)
+  from space 1856K,  16% used [0x00000000e0eb0000, 0x00000000e0efd428, 0x00000000e1080000)
+  to   space 1856K,   0% used [0x00000000e1080000, 0x00000000e1080000, 0x00000000e1250000)
+ tenured generation   total 37280K, used 29112K [0x00000000eaaa0000, 0x00000000ecf08000, 0x0000000100000000)
+   the space 37280K,  78% used [0x00000000eaaa0000, 0x00000000ec70e000, 0x00000000ec70e000, 0x00000000ecf08000)
+ Metaspace       used 59247K, committed 59712K, reserved 1105920K
+  class space    used 8840K, committed 9088K, reserved 1048576K
+}
+
+Deoptimization events (20 events):
+Event: 43.492 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9daecc sp=0x00007fc9e8efddf0
+Event: 43.492 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd270 mode 0
+Event: 43.492 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9dbc13 sp=0x00007fc9e8efde90
+Event: 43.492 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd330 mode 0
+Event: 43.579 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9daecc sp=0x00007fc9e8efddf0
+Event: 43.579 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd270 mode 0
+Event: 43.581 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9daecc sp=0x00007fc9e8efddf0
+Event: 43.581 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd270 mode 0
+Event: 43.680 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9dbc13 sp=0x00007fc9e8efde90
+Event: 43.680 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd330 mode 0
+Event: 43.689 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9fe388 sp=0x00007fc9e8efdee0
+Event: 43.689 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd3b0 mode 0
+Event: 43.689 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9fc3d4 sp=0x00007fc9e8efdf00
+Event: 43.689 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd398 mode 0
+Event: 43.779 Thread 0x00007fca0071d190 DEOPT PACKING pc=0x00007fc9ec9fe388 sp=0x00007fc9e8efdee0
+Event: 43.779 Thread 0x00007fca0071d190 DEOPT UNPACKING pc=0x00007fc9ec02652f sp=0x00007fc9e8efd3b0 mode 0
+Event: 149.406 Thread 0x00007fc998005cc0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00007fc9f3c757c8 relative=0x0000000000000128
+Event: 149.406 Thread 0x00007fc998005cc0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fc9f3c757c8 method=java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;IZZZJ)I @ 40 c2
+Event: 149.406 Thread 0x00007fc998005cc0 DEOPT PACKING pc=0x00007fc9f3c757c8 sp=0x00007fc9e85fe630
+Event: 149.406 Thread 0x00007fc998005cc0 DEOPT UNPACKING pc=0x00007fc9ec025d99 sp=0x00007fc9e85fe5d0 mode 2
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 36.495 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e02544b8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000e02544b8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 36.501 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e02a7c60}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, int)'> (0x00000000e02a7c60) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 40.080 Thread 0x00007fca01027dc0 Implicit null exception at 0x00007fc9f3b8a673 to 0x00007fc9f3b8abb0
+Event: 40.279 Thread 0x00007fca00023b30 Implicit null exception at 0x00007fc9f3b7a355 to 0x00007fc9f3b7ad84
+Event: 40.479 Thread 0x00007fca01027dc0 Implicit null exception at 0x00007fc9f3b8c2f4 to 0x00007fc9f3b8c844
+Event: 41.089 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e062b4d0}: 'long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object)'> (0x00000000e062b4d0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 41.490 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0915b28}: 'int io.netty.channel.kqueue.Native.sizeofKEvent()'> (0x00000000e0915b28) 
+thrown [src/hotspot/share/prims/nativeLookup.cpp, line 543]
+Event: 41.492 Thread 0x00007fca00023b30 Exception <a 'java/lang/ExceptionInInitializerError'{0x00000000e0916228}> (0x00000000e0916228) 
+thrown [src/hotspot/share/oops/instanceKlass.cpp, line 1169]
+Event: 41.584 Thread 0x00007fca00023b30 Exception <a 'java/lang/reflect/InvocationTargetException'{0x00000000e0993ee0}> (0x00000000e0993ee0) 
+thrown [src/hotspot/share/runtime/reflection.cpp, line 1119]
+Event: 42.284 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e0cb46d8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000000e0cb46d8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 42.284 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e0cb9a28}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000000e0cb9a28) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 42.284 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e0cbe4f0}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x00000000e0cbe4f0) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 42.784 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e0dd53d8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object)'> (0x00000000e0dd53d8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 42.785 Thread 0x00007fca00023b30 Exception <a 'java/lang/NoSuchMethodError'{0x00000000e0dd87d8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object)'> (0x00000000e0dd87d8) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 758]
+Event: 42.881 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0e66e00}> (0x00000000e0e66e00) 
+thrown [src/hotspot/share/prims/jvm.cpp, line 3384]
+Event: 42.881 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0e66e00}> (0x00000000e0e66e00) 
+thrown [src/hotspot/share/prims/jni.cpp, line 516]
+Event: 42.882 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0e6d4a0}> (0x00000000e0e6d4a0) 
+thrown [src/hotspot/share/prims/jvm.cpp, line 3384]
+Event: 42.882 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0e6d4a0}> (0x00000000e0e6d4a0) 
+thrown [src/hotspot/share/prims/jni.cpp, line 516]
+Event: 42.882 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0e73678}> (0x00000000e0e73678) 
+thrown [src/hotspot/share/prims/jvm.cpp, line 3384]
+Event: 42.882 Thread 0x00007fca00023b30 Exception <a 'java/lang/UnsatisfiedLinkError'{0x00000000e0e73678}> (0x00000000e0e73678) 
+thrown [src/hotspot/share/prims/jni.cpp, line 516]
+
+VM Operations (20 events):
+Event: 68.593 Executing VM operation: Cleanup
+Event: 68.593 Executing VM operation: Cleanup done
+Event: 85.595 Executing VM operation: Cleanup
+Event: 85.595 Executing VM operation: Cleanup done
+Event: 86.595 Executing VM operation: Cleanup
+Event: 86.595 Executing VM operation: Cleanup done
+Event: 87.595 Executing VM operation: Cleanup
+Event: 87.595 Executing VM operation: Cleanup done
+Event: 88.595 Executing VM operation: Cleanup
+Event: 88.595 Executing VM operation: Cleanup done
+Event: 96.596 Executing VM operation: Cleanup
+Event: 96.596 Executing VM operation: Cleanup done
+Event: 97.596 Executing VM operation: Cleanup
+Event: 97.596 Executing VM operation: Cleanup done
+Event: 130.604 Executing VM operation: Cleanup
+Event: 130.604 Executing VM operation: Cleanup done
+Event: 139.608 Executing VM operation: Cleanup
+Event: 139.608 Executing VM operation: Cleanup done
+Event: 149.611 Executing VM operation: Cleanup
+Event: 149.611 Executing VM operation: Cleanup done
+
+Events (20 events):
+Event: 43.388 loading class sun/misc/Signal done
+Event: 43.389 
